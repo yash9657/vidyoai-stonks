@@ -18,13 +18,19 @@ class MainView extends Component {
         stockList: [...this.state.stockList, stockName]
       },
       async () => {
-        const value = await ajax.fetchStockPrice(this.state.stockList);
+        const value = await ajax.fetchStockPrice(stockName);
+        let arr = [];
+        arr.push(value['Global Quote'])
+        //console.log(arr)
+        //console.log(value['Global Quote']['01. symbol'])
         this.setState({
-          data: value.data
+          data: arr
         });
       }
     );
   };
+
+  
 
   onStockRemoveHandler = stockName => {
     const currState = [...this.state.stockList];
@@ -36,9 +42,11 @@ class MainView extends Component {
           stockList: currState
         },
         async () => {
-          const value = await ajax.fetchStockPrice(this.state.stockList);
+          const value = await ajax.fetchStockPrice(stockName);
+          let arr = [];
+          arr.push(value['Global Quote'])
           this.setState({
-            data: value.data
+            data: arr
           });
         }
       );

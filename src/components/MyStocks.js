@@ -21,12 +21,12 @@ class MyStocks extends Component {
           {this.props.data &&
             this.props.data.map((stock, key) => (
               <EachStock
-                stock={stock['symbol']}
-                name={stock['name']}
-                price_open={stock['price_open']}
-                price={stock['price']}
-                day_high={stock['day_high']}
-                day_low={stock['day_low']}
+                stock={stock[0]['01. symbol']}
+                name={stock[0]['01. symbol']}
+                price_open={stock[0]['02. open']}
+                price={stock[0]['05. price']}
+                day_high={stock[0]['03. high']}
+                day_low={stock[0]['04. low']}
                 key={key}
                 handleRemove={this.handleRemove}
               />
