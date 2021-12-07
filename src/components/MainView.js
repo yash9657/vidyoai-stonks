@@ -25,9 +25,6 @@ class MainView extends Component {
         const value = await ajax.fetchStockPrice(stockName);
         this.state.arr.push(value['Global Quote'])
         console.log(this.state.arr)
-        //console.log(this.state.arr);
-        //this.state.data.push(value['Global Quote']);
-        //console.log(value['Global Quote']['01. symbol'])
         this.setState({
           data: this.state.arr
         });
@@ -47,9 +44,8 @@ class MainView extends Component {
         {
           stockList: currState
         },
-        
         async () => {
-          const value = await ajax.fetchStockPrice(stockName);
+          //const value = await ajax.fetchStockPrice(stockName);
           var i = this.state.data.indexOf(stockName);
           console.log(this.state.data);
           
@@ -59,11 +55,6 @@ class MainView extends Component {
           })
           console.log(this.state.data);
           
-          // let arr = [];
-          // arr.push(value['Global Quote'])
-          // this.setState({
-          //   data: this.state.data.pop[value['Global Quote']]
-          // });
         }
       );
     }

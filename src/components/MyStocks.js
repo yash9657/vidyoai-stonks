@@ -17,7 +17,6 @@ class MyStocks extends Component {
     return (
       <div className='mystocks_div'>
         {this.props.data && <h4 className='yourList'>Your List:</h4>}
-        {/*this.props.data.length > 0 ? console.log(this.props.data[0]['01. symbol']) : console.log(this.props.data)*/}
         {this.props.data.length > 0 && this.props.data.map((stock, key) => console.log(stock['01. symbol']))}
         <div className='mystocks'>
           {this.props.data.length > 0 &&
@@ -29,6 +28,7 @@ class MyStocks extends Component {
                 price={stock['05. price']}
                 day_high={stock['03. high']}
                 day_low={stock['04. low']}
+                change_percent={stock['10. change percent']}
                 key={key}
                 handleRemove={this.handleRemove}
               />

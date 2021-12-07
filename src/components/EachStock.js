@@ -30,6 +30,9 @@ class EachStock extends Component {
                 <li className='list-group-item'>
                   Day Low: {this.props.day_low}
                 </li>
+                <li className='list-group-item'>
+                  Change: {this.props.change_percent}
+                </li>
               </ul>
               <div className='link-div'>
                 <a href={yahooLink} className='card-link yahoo'>
