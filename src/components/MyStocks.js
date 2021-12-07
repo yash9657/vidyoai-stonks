@@ -17,16 +17,18 @@ class MyStocks extends Component {
     return (
       <div className='mystocks_div'>
         {this.props.data && <h4 className='yourList'>Your List:</h4>}
+        {/*this.props.data.length > 0 ? console.log(this.props.data[0]['01. symbol']) : console.log(this.props.data)*/}
+        {this.props.data.length > 0 && this.props.data.map((stock, key) => console.log(stock['01. symbol']))}
         <div className='mystocks'>
-          {this.props.data &&
+          {this.props.data.length > 0 &&
             this.props.data.map((stock, key) => (
               <EachStock
-                stock={stock[0]['01. symbol']}
-                name={stock[0]['01. symbol']}
-                price_open={stock[0]['02. open']}
-                price={stock[0]['05. price']}
-                day_high={stock[0]['03. high']}
-                day_low={stock[0]['04. low']}
+                stock={stock['01. symbol']}
+                name={stock['01. symbol']}
+                price_open={stock['02. open']}
+                price={stock['05. price']}
+                day_high={stock['03. high']}
+                day_low={stock['04. low']}
                 key={key}
                 handleRemove={this.handleRemove}
               />

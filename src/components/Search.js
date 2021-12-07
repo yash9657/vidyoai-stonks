@@ -73,7 +73,7 @@ class Search extends Component {
                 <h6 className='card-subtitle mb-2 text-muted'>
                   {stock['2. name']}
                 </h6>
-                <p className='card-text'>{this.state.stocks[key]}</p>
+                <p className='card-text'>${this.state.stocks[key]}</p>
                 {this.props.stockList.includes(stock['1. symbol']) ? (
                   <button
                     href='#'
