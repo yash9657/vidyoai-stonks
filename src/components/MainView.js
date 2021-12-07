@@ -6,25 +6,30 @@ import ajax from '../ajax';
 class MainView extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       stockList: [],
-      data: []
+      data: [],
+      arr: []
     };
   }
-
+  
   onStockAddHandler = stockName => {
     this.setState(
       {
         stockList: [...this.state.stockList, stockName]
       },
+      
       async () => {
+        
         const value = await ajax.fetchStockPrice(stockName);
-        let arr = [];
-        arr.push(value['Global Quote'])
-        //console.log(arr)
+        this.state.arr.push(value['Global Quote'])
+        console.log(this.state.arr)
+        //console.log(this.state.arr);
+        //this.state.data.push(value['Global Quote']);
         //console.log(value['Global Quote']['01. symbol'])
         this.setState({
-          data: arr
+          data: this.state.arr
         });
       }
     );
@@ -43,11 +48,19 @@ class MainView extends Component {
         },
         async () => {
           const value = await ajax.fetchStockPrice(stockName);
-          let arr = [];
-          arr.push(value['Global Quote'])
-          this.setState({
-            data: arr
-          });
+          var i = this.state.data.indexOf(stockName);
+          if(i !== -1) {
+            this.state.data.splice(i, 1);
+            this.setState({
+              data: this.state.data
+            })
+            console.log(this.state.data);
+          }
+          // let arr = [];
+          // arr.push(value['Global Quote'])
+          // this.setState({
+          //   data: this.state.data.pop[value['Global Quote']]
+          // });
         }
       );
     }
