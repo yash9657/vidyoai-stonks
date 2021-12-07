@@ -39,6 +39,7 @@ class MainView extends Component {
 
   onStockRemoveHandler = stockName => {
     const currState = [...this.state.stockList];
+    //console.log(currState);
     var index = this.state.stockList.indexOf(stockName);
     if (index !== -1) {
       currState.splice(index, 1);
@@ -46,16 +47,18 @@ class MainView extends Component {
         {
           stockList: currState
         },
+        
         async () => {
           const value = await ajax.fetchStockPrice(stockName);
           var i = this.state.data.indexOf(stockName);
-          if(i !== -1) {
-            this.state.data.splice(i, 1);
-            this.setState({
-              data: this.state.data
-            })
-            console.log(this.state.data);
-          }
+          console.log(this.state.data);
+          
+          this.state.data.splice(i, 1);
+          this.setState({
+            data: this.state.data
+          })
+          console.log(this.state.data);
+          
           // let arr = [];
           // arr.push(value['Global Quote'])
           // this.setState({
